@@ -265,7 +265,9 @@ client.connect((err) => {
                 return datas;
               }),
             sachet_sales: users[user]
-              .filter((x) => x.sales_status === "4_5_stick_with_sachet")
+              .filter(
+                (x) => x.sales_status === "Plastic_Sachet_with_4_5_Sticks"
+              )
               .slice(0, 1)
               .map((d) => {
                 let datas = {};
@@ -277,7 +279,7 @@ client.connect((err) => {
                 return datas;
               }),
             vao_sales: users[user]
-              .filter((x) => x.sales_status === "40_sticks_with_Lighter")
+              .filter((x) => x.sales_status === "VAO_with_40_Sticks")
               .slice(0, 1)
               .map((d) => {
                 let datas = {};
@@ -361,7 +363,8 @@ client.connect((err) => {
             regenSachet_sales: users[user]
               .filter(
                 (x) =>
-                  x.for_d === null && x.sales_status === "4_5_stick_with_sachet"
+                  x.for_d === null &&
+                  x.sales_status === "Plastic_Sachet_with_4_5_Sticks"
               )
               .slice(
                 0,
@@ -381,8 +384,7 @@ client.connect((err) => {
             regenStick_vao: users[user]
               .filter(
                 (x) =>
-                  x.for_d === null &&
-                  x.sales_status === "40_sticks_with_Lighter"
+                  x.for_d === null && x.sales_status === "VAO_with_40_Sticks"
               )
               .slice(
                 0,
@@ -410,15 +412,16 @@ client.connect((err) => {
                 0,
                 users[user].filter(
                   (x) =>
-                    (x.sales_status === "4_5_stick_with_sachet" ||
-                      x.sales_status === "40_sticks_with_Lighter") &&
+                    (x.sales_status === "Plastic_Sachet_with_4_5_Sticks" ||
+                      x.sales_status === "VAO_with_40_Sticks") &&
                     x.answer6 === "yes"
                 ).length < 3
                   ? 3 -
                       users[user].filter(
                         (x) =>
-                          (x.sales_status === "4_5_stick_with_sachet" ||
-                            x.sales_status === "40_sticks_with_Lighter") &&
+                          (x.sales_status ===
+                            "Plastic_Sachet_with_4_5_Sticks" ||
+                            x.sales_status === "VAO_with_40_Sticks") &&
                           x.answer6 === "yes"
                       ).length
                   : 0
